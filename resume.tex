@@ -1,0 +1,209 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome}
+\usepackage{fontspec}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\usepackage{multicol}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+
+% personal data
+\name{Aleksei}{Sholokhov}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{202 Lewis Hall, Seattle, WA 98105}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{909-839-3097}                   % optional, remove / comment the line if not wanted
+% \phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% \email{xpan1@swarthmore.edu}                               % optional, remove / comment the line if not wanted
+% \homepage{shawnpan.me}                         % optional, remove / comment the line if not wanted
+% \extrainfo{}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+  
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\setlength{\tabcolsep}{12pt}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-23mm}
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ \faGlobe\enspace aksholokhov.github.io & \faEnvelopeO\enspace aksh@uw.edu & \faGithub\enspace aksholokhov & \faMobile\enspace 505-557-59-81\\  
+\end{tabular}
+\end{center}
+
+\section{EDUCATION}
+{\customcventry{Expected Graduation: 07/2023}{Ph.D. in Applied Mathematics}{University of Washington}{Seattle, WA}{}{}}
+{\customcventry{07/2018}{B.Sc. in Applied Mathematics and Physics}{Moscow Institute of Physics and Technology}{Moscow, Russia}{}{}}
+
+\section{EXPERIENCE}
+
+\customcventry{09/2018 - Now}{Ph.D. Student}{Department of Applied Mathematics, University of Washington}{Seattle, WA}{}
+{\begin{itemize}
+	\item Created an algorithm to distill interpretable physics laws from neural networks models. It decreased the amount of data needed to model noisy dynamical systems by 90\%.
+	\item Adapted novel optimization methods to accelerate training deep neural networks using \texttt{tensorflow}, \texttt{jax}, and \texttt{CUDA}. Achieved state-of-the-art performance in some image recognition applications.
+    \item Developed \texttt{gspack}: python-autograder to accelerate creating of coding assignments. This package is successfully used for 5 scientific computing classes for over 3000 students in Department of Applied Mathematics.
+\end{itemize}
+}
+
+\customcventry{08/2019 - Now}{Graduate Research Assistant}{Institute for Health Metrics and Evaluation}{Seattle, WA}{}
+{\begin{itemize}
+	\item Devised new statistical models to improve the reliability of Global Burden of Diseases research. Implemented as a Python package and integrated it with the company's pipelines achieving 3000\%
+	\item Developed IHME Projections: a statistical model that projects cases and deaths from COVID-19 globally. Collaborated with a team of 130 researchers while working on it. This tool helped the decision makers, like CDC, to properly allocate scarce resources at the beginning of the pandemic.
+\end{itemize}
+}
+
+\customcventry{03/2018 - 10/2018}{Visiting Research Student}{Grenoble Informatics Laboratory, University Grenoble-Alps}{Grenoble, France}{}
+{\begin{itemize}
+ 	\item Designed an inexact margin approach to enable large-scale SVM classifiers to work with big data. Implemented it as a package \texttt{MEMOIR} using SQL, C++, and Python. 
+ 	\item Improved the accuracy and memory management on real-data benchmarks over state-of-the-art approaches.
+\end{itemize}
+}
+
+\customcventry{01/2018-02/2018}{Visiting Research Student}{Center for Nonlinear Studies, Los-Alamos National Laboratory}{Los-Alamos, NM}{}
+{\begin{itemize} 
+     \item Adapted a reinforcement learning algorithm to dynamically control the energy consumption of electric loads.
+\end{itemize}
+}
+
+\customcventry{02/2016-07/2018}{Research Student}{Computing Center of Russian Academy of Science}{Moscow, Russia}{}
+{\begin{itemize}
+    \item Created \texttt{rysearch}: an exploratory search engine and recommender system that simplifies knowledge discovery with MongoDB, BigARTM.
+    \item Organized and coordinated research and software development in the team of 3 researchers.
+    \item Developed and published 2 novel metrics for automatic quality assessment of hierarchical topic models.
+\end{itemize}
+} 
+
+\section{TEACHING EXPERIENCE}
+\customcventry{01/2019 - Now}{Teaching Assistant}{Department of Applied Mathematics, University of Washington}{Seattle, WA}{}
+{\begin{itemize}
+	\item Held office hours and administered grading for such graduate-level classes as Beginning Scientific Computing, High-Performance Scientific Computing, and Numerical Optimization.
+	\item Taught 3 sections a week of Calculus and Analytic Geometry for 2 quarters.
+\end{itemize}
+}
+
+\section{SELECTED PUBLICATIONS}
+ More at \href{scholar.google.com/citations?user=\_2uniNcAAAAJ}{scholar.google.com/citations?user=\_2uniNcAAAAJ}
+ \vspace{0.3em}   	
+ 
+ \begin{itemize}
+ 		\item \textbf{``Universal Feature Selection for Mixed-Effects Models with Non-convex Penalties"} \newline Together with Santomauro D., Burke J., Zheng P., and Aravkin A., \emph{in preparation}
+ 		\item \textbf{``Distillation of Neural Differential Equations for Interpretable Model Discovery"} \newline
+ 			 Together with Kutz, N., and Brunton, S. \emph{in preparation}
+ 		\item \textbf{``pysr3: Python Library for Sparse Relaxed Regularized Regression"} \newline
+ 			 Together with Zheng, P., and Aravkin, A., \emph{under peer-review}
+        \item \textbf{``Modeling COVID-19 scenarios for the United States''}. \newline Together with IHME Covid-19 Forecasting Team. \emph{Nature Medicine}, 2020.
+        \item \textbf{``Quality Evaluation and Improvement for Hierarchical Topic Modelling.''},\newline Together with Belyy A.V., Selezniova, M.S., and Vorontsov, K., \newline \emph{ 24rd International Conference on Computational Linguistics and Intellectual Technologies} 
+        \item  \textbf{``MEMOIR: Multi-class Extreme Classification with Inexact Margin."} \newline Together with Belyy,~A.,\textit{arXiv preprint arXiv:1811.09863 (2018)}.
+    \end{itemize}
+
+
+\section{SERVICE AND OUTREACH}
+\customcventry{09/2020 - Now}{Diversity, Equity, and Inclusion (DEI) Committee Member}{Department of Applied Mathematics, University of Washington}{Seattle, WA}{}
+{\begin{itemize}
+	\item Developed 10-years Diversity Action Plan for the Department of Applied Mathematics
+	\item Organized and led educational seminars on importance of diversity in academia.
+	\item Interviewed faculty job candidates to assess their DEI action track.
+\end{itemize}
+}
+
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%-----       letter       ---------------------------------------------------------
+
+\end{document}
+
+
+%% end of file `template.tex'.
