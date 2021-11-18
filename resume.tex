@@ -6,7 +6,7 @@
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\documentclass[10pt,letterpaper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % modern themes
 \moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
@@ -111,21 +111,20 @@
 
 \section{EDUCATION}
 {\customcventry{Expected Graduation: 07/2023}{Ph.D. in Applied Mathematics}{University of Washington}{Seattle, WA}{}{}}
-{\customcventry{07/2021}{M.Sc. in Applied Mathematics}{University of Washington}{Seattle, WA}{}{}}
 
 \section{SKILLS}
 
 \customcventry{09/2018-now}{As Research Assistant at University of Washington}{Research in Machine Learning Algorithms and Deep Learning}{Seattle, WA}{}
 {\begin{itemize}
-	\item Created an algorithm that extracts interpretable models and learns physics laws from trained neural networks. Decreased the amount of data needed to model noisy dynamical systems by a factor of 10.
-	\item Accelerated training of deep neural networks using higher-order methods, and implemented image recognition libraries higher-order methods. Implemented it as \texttt{TensorFlow} and \texttt{jax} modules. Achieved state-of-the-art performance for selected image recognition tasks.
+	\item Decreased the amount of data needed to model noisy dynamical systems by a factor of 10 by integrating \texttt{Neural ODE} techniques into model discovery library \texttt{SINDy}.
+	\item Accelerated training of deep neural networks using higher-order methods. Implemented it as \texttt{TensorFlow} and \texttt{jax} modules. Achieved state-of-the-art performance for selected image recognition tasks.
 \end{itemize}
 }
 
 \customcventry{09/2018-now}{As Research Assistant at the Institute for Health Metrics and Evaluation (IHME)}{Data Science and Statistical Analysis}{Seattle, WA}{}
 {\begin{itemize}
-	\item Invented new statistical modeling tools that extract meaningful features for machine learning models. Implemented it as a \texttt{python} package \texttt{skmixed} that is fully compatible to \texttt{scikit-learn}. Achieved 30-fold speed-up upon deployment to the institute's pipelines.
-	\item Developed IHME Projections: a statistical model that projects cases and deaths from COVID-19 globally; in cross-functional collaboration with a team of 130 researchers. This tool helped the decision makers (including local, state, and national governments) to manage resources and plan ahead during the pandemic.
+	\item Invented new statistical modeling tool \texttt{pysr3} that selects features using novel optimization techniques. Implemented it as a  \texttt{scikit-learn}-compatible \texttt{python} package. Achieved 30-fold speed-up upon deployment.
+	\item Developed a statistical model that projects cases and deaths from COVID-19; in collaboration with a team of 130 researchers. It helped the decision makers to manage resources and plan ahead during the pandemic.
 \end{itemize}
 }
 
@@ -133,23 +132,22 @@
 \customcventry{09/2018-now}{As Research Assistant at University of Washington and IHME}{Software Development in Python, MATLAB, and C++}{Seattle, WA}{}
 {\begin{itemize}
     \item Developed \texttt{gspack}: python-autograder to accelerate grading of coding assignments. This package is successfully used for 5 scientific computing classes for over 3000 students in Department of Applied Mathematics.
- 	\item Enabled SVM classifiers to work with large-scale data using stochastic optimization. Implemented it as an open-source package MEMOIR using \texttt{SQL}, \texttt{C++}, and \texttt{Python}. Improved the accuracy and memory management by 30\% over state-of-the art approaches.
+ 	\item Enabled SVM classifiers to work with large-scale data using approximate nearest neighbor search. Implemented it using \texttt{SQL}, \texttt{C++}, and \texttt{Python}. Improved accuracy and memory costs by 30\%  over the competitors.
  	\item Learned \texttt{OpenMP}, \texttt{MPI}, and \texttt{CUDA} by working as a teacher assistant for graduate-level High-Performance Scientific Computing classes for two years. Learned \texttt{MATLAB} by teaching Scientific Computing for 1 year. 
 \end{itemize}
 }
 
 \customcventry{02/2016-07/2018}{As Research Student at Computing Center of Russian Academy of Science}{Project Management, Communication, and Leadership skills}{Moscow, Russia}{}
 {\begin{itemize}
-    \item Developed strong analytical, communication, and quantitative problem-solving skills by teaching graduate-level classes on Scientific Computing, HPC, and Optimization to classes of 200+ students (UW).
     \item Lead \texttt{RySearch} project: an exploratory data analysis and recommender system that simplifies knowledge discovery with NLP techniques such as topic-modeling. Implemented using \texttt{python}, \texttt{JavaScript}, and \texttt{MongoDB}.
-    \item Effectively organized research and software development in the team of 4 researchers and successfully met tight deadlines. Published 2 novel quality metrics for topic models based on this work.
+    \item Effectively organized research and software development in the team of 4 researchers. Published 2 novel quality metrics for topic models based on this work.
    	\end{itemize}
 } 
 
 \customcventry{09/2020 - Now}{As a Diversity, Equity, and Inclusion (DEI) Committee Member at UW}{Negotiation Skills, Cross-Functional Collaboration, and Cross-Cultural Dialog}{Seattle, WA}{}
 {\begin{itemize}
 	\item Developed 10-years Diversity Action Plan for the Department of Applied Mathematics.
-	\item Introduced Early Scholars Program to the department leadership. Secured \$20k of financial commitment to the program as a result of tense negotiations.   
+	\item Negotiated \$20k financial commitment from the department to Early Scholars Program.   
 	\item Organized and led educational seminars on importance of diversity and inclusion in academia.
 \end{itemize}
 }
@@ -159,14 +157,10 @@
 \vspace{0.3em}   	
  
  \begin{itemize}
- 		\item \textbf{``Universal Feature Selection for Mixed-Effects Models with Non-convex Penalties"} \newline Together with Santomauro D., Burke J., Zheng P., and Aravkin A., \emph{in preparation}
- 		\item \textbf{``Distillation of Neural Differential Equations for Interpretable Model Discovery"} \newline
- 			 Together with Kutz, N., and Brunton, S. \emph{in preparation}
- 		\item \textbf{``pysr3: Python Library for Sparse Relaxed Regularized Regression"} \newline
- 			 Together with Zheng, P., and Aravkin, A., \emph{under peer-review}
-        \item \textbf{``Modeling COVID-19 scenarios for the United States''}. \newline Together with IHME Covid-19 Forecasting Team. \emph{Nature Medicine}, 2020.
-        \item \textbf{``Quality Evaluation and Improvement for Hierarchical Topic Modelling.''},\newline Together with Belyy A.V., Selezniova, M.S., and Vorontsov, K., \newline \emph{ 24rd International Conference on Computational Linguistics and Intellectual Technologies} 
-        \item  \textbf{``MEMOIR: Multi-class Extreme Classification with Inexact Margin."} \newline Together with Belyy,~A.,\textit{arXiv preprint arXiv:1811.09863 (2018)}.
+ 		\item Sholokhov A., Santomauro D., Burke J., Zheng P., and Aravkin A., "Universal Feature Selection for Mixed-Effects Models with Non-Сonvex Penalties", \textit{in preparation}
+ 		\item Sholokhov, A., Zheng, P., and Aravkin, A., "pysr3: Python Library for Sparse Relaxed Regularized Regression", \textit{under peer-review}
+        \item IHME Covid-19 Forecasting Team, "Modeling COVID-19 scenarios for the United States". \textit{Nature Medicine, 2020}
+        \item Belyy A.V., Selezniova, M.S., Sholokhov, A., and Vorontsov, K., "Quality Evaluation and Improvement for Hierarchical Topic Modelling",  \textit{24rd International Conference on Computational Linguistics}
     \end{itemize}
 
 
