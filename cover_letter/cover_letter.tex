@@ -1,0 +1,107 @@
+% Letter template which should agree largely with DIN5008A https://de.wikipedia.org/wiki/DIN_5008
+% 
+% Till Blaha 2023, Creative Commons
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Configuration
+
+% According to DIN5008A, the height of the right-hand location field can vary between 40 and 75mm
+% you can set this value accordingly, if you need more vertical space in that field
+\newcommand{\mylocheight}{40mm}
+
+% show foldmarks?
+\newcommand{\showfoldmarks}{on} % on or off
+
+% include the preamble
+\input{preamble.tex}
+
+%%% uncomment these 2 lines to make sure the boxes for address and location are not overrun
+\LoadLetterOption{visualize}
+%\showfields{head,address,location,refline,foot}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Content %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+% Sender Variables %
+%%%%%%%%%%%%%%%%%%%%
+\setkomavar{fromname}{Aleksei Sholokhov}
+\setkomavar{fromaddress}{202 Lewis Hall\\University of Washington\\Seattle, WA 98125\\USA}
+\setkomavar{fromphone}{+1 505 557 5981}
+\setkomavar{fromemail}{ak.sholokhov@gmail.com}
+\setkomavar{backaddressseparator}{\ \textperiodcentered \ }
+\setkomavar{signature}{\hspace{5mm}\\Aleksei Sholokhov} % with scanned signature
+%\setkomavar{signature}{\vspace{10mm} \\ John Doe} % without scanned signature
+\setkomavar{place}{}
+\setkomavar{date}{\today}
+\setkomavar{enclseparator}{: }
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Letterhead variables %
+%%%%%%%%%%%%%%%%%%%%%%%%
+\setkomavar{letterheadsubtitle}{Machine Learning Researcher, PhD Student}
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Location Variables %
+%%%%%%%%%%%%%%%%%%%%%%
+
+\setkomavar{location}{
+\newline\vspace{-18pt}% no idea why this hack is needed to align the table to the left
+\begin{tabbing}
+	\hspace{35mm} \= \hspace{25mm} \= \kill % Spacing within the block
+	Telephone:               \> \usekomavar{fromphone}\\
+	Email:                   \> \usekomavar{fromemail}
+\end{tabbing}
+}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Addressee                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \begin{letter}{%
+  	Lexie Muller \\
+    Google \\
+    }
+    
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Start of Actual Content of the Letter         %
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+%    \setkomavar{subject}{Cover Letter for a Research Internship at Google}
+    
+    \opening{Dear Lexie Muller,} % 100 words
+    
+    
+    After learning about your Research Internship on Machine Learning, I am applying to Google because I believe that I am an excellent fit. Over the last five years, I gained extensive experience as a machine learning researcher in both academia and industry, and I believe that Google is the ideal next step in my career. 
+
+During my tenure as a research assistant at the Institute for Health Metrics and Evaluations (IHME) I developed novel feature selection methods for mixed-effect models. To create a product that perfectly fits my consumer's needs, I collaborated extensively with multiple teams on global projects like the COVID-19 Forecasting and Global Burden of Diseases Study. As a result, I published three research papers and developed one open-source package that is now widely used at the IHME and beyond. This work helped me to hone my communication skills and taught me the value of real user feedback.
+
+In spring 2022, I developed novel methods for physics-informed deep learning as a machine learning researcher at Mitsubishi Electric Research Laboratories (MERL). During my internship, I drove a project from an idea to a publication in under three months and contributed significantly to another paper. I learned not only how to train large deep learning models but, more importantly, the importance of planning and prioritizing in time-limited research endeavors.
+
+In summer 2022, I worked as a Machine Learning Engineer Intern at Stripe, Inc. I was tasked to develop a model calibration pipeline for the company's transactional fraud models. It was a true challenge: I had to transform my team's vision into a project proposal and deploy the implementation to Stripe's critical production infrastructure, all in the middle of a company-wide technological transition. To succeed, I collaborated extensively with corporate leadership, fellow engineers, and the downstream consumers, giving multiple presentations a month, each tailored to different audiences. This experience taught me what it takes to deploy an ML model to critical infrastructure at scale, and this remains my proudest achievement to date. 
+
+I am writing with keen interest in Google's core values in putting the user first and ensuring free access to information on the web because they mirror my own. I am looking forward to applying my skills in developing cutting edge ML models while collaborating in a diverse and multi-cultural team of like-minded scientists and engineers. The letters of recommendation from each of the companies mentioned above are openly available on my LinkedIn profile, and examples of my coding projects are available on my GitHub page. Please don't hesitate to contact me or any of my recommenders if you have any questions. 
+
+Have a wonderful day, and I am looking forward to hearing from you!
+
+    
+	
+    \closing{Best wishes,}
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%
+    % Enclosures          %
+    %%%%%%%%%%%%%%%%%%%%%%%
+    
+    
+    
+    %%%%%%%%%%%%%%%%%%%%%%%
+    % End of Tex Document %
+    %%%%%%%%%%%%%%%%%%%%%%%
+    
+    \end{letter}
+\end{document}
+
+
+

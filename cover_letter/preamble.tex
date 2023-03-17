@@ -1,0 +1,138 @@
+\documentclass[
+  fontsize=11pt,
+  paper=a4,
+  foldmarks=\showfoldmarks,           % Print foldmarks, all 3
+  %foldmarks=Pbt,           % Print foldmarks, middle only
+  %foldmarks=off,           % Print no foldmarks
+  enlargefirstpage=on,    % More space on first page
+  fromalign=right,        % Placement of name in letter head
+  fromphone=off,           % Turn on phone number of sender
+  fromemail=off,
+  fromlogo=off,
+  %fromrule=on,            % Rule after address in letter head
+  fromrule=aftername,     % Rule after sender name in letter head
+  addrfield=on,           % Adress field for envelope with window
+  backaddress=on,         % Sender address in this window
+  subject=afteropening,   % Placement of subject
+  pagenumber=foot,
+]{scrlttr2}
+%\LoadLetterOption{DIN5008A} % we manually modify the geometry to comply to variant A
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+% General Settings %
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{blindtext} % ignore this, just for testing
+\usepackage{graphicx}  % Primary graphic path
+\graphicspath{{./}}
+\usepackage{calc}
+\usepackage{hyperref}
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Font and Language settings %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}% http://ctan.org/pkg/babel
+%\usepackage[UKenglish]{babel}% http://ctan.org/pkg/babel
+\usepackage[UKenglish]{isodate} % Proper date format like 1 January 2016
+\cleanlookdateon                % Proper date format like 1 January 2016
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% General Format parameters %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[lmargin=25mm, rmargin=20mm, bmargin=30mm, tmargin=25mm]{geometry}
+\newcommand{\vtab}{\vspace{2.5mm}\noindent}	%initialize the vtab command
+\setlength{\parskip}{3pt}					%a little space between pars
+\setlength{\parindent}{0pt}					%no par indent for "modern" look
+
+%%%%%%%%%%%%%%%
+% Fonts Modes %
+%%%%%%%%%%%%%%%
+\setkomafont{fromname}{\sffamily \bfseries \Large \vspace{-2pt}}
+\setkomafont{fromaddress}{\mdseries}	% mdseries = serif; sffamily = sans serif
+\setkomafont{toname}{\mdseries}
+\setkomafont{toaddress}{\mdseries}
+\setkomafont{pagenumber}{\sffamily}
+\setkomafont{subject}{\bfseries
+mily \large}
+\setkomafont{backaddress}{\mdseries}
+
+%%%%%%%%%%%%%%%%%%%%
+% Serveral "hacks" %
+%%%%%%%%%%%%%%%%%%%%
+%%% This is to comply to DIN5008A
+
+%%% address field positioning
+\makeatletter
+  %\@setplength{backaddrheight}{0pt}% because backaddress=off
+  \@setplength{toaddrhpos}{20mm}%distance from left
+  \@setplength{toaddrvpos}{27mm}%distance from top
+  \@setplength{toaddrheight}{45mm}%height of the addressbox
+  \@setplength{toaddrwidth}{85mm}% width of the addressbox
+\makeatother
+
+%%%Din position of location field
+\makeatletter
+  \@setplength{locvpos}{32mm} %From top edge
+  \@setplength{lochpos}{10mm} %From right edge
+  \@setplength{locwidth}{85mm} % used to be 53
+  \@setplength{locheight}{\mylocheight}
+\makeatother
+
+%%% fold mark positions
+\makeatletter
+    \@setplength{tfoldmarkvpos}{87mm}
+    \@setplength{bfoldmarkvpos}{192mm}
+\makeatother
+
+%%% DIN positioning of text (assuming 5mm for date line)
+\makeatletter
+    \@setplength{refvpos}{35mm}
+    \@addtoplength{refvpos}{\useplength{locheight}}  % reduce space before date/opening/subject/text starts
+    \@setplength{subjectaftervskip}{5mm}  % reduce space below subject line
+\makeatother
+
+%%%Unindent the signature image
+\makeatletter
+	\@setplength{sigbeforevskip}{0pt}
+\makeatother
+\renewcommand*{\raggedsignature}{\raggedright}
+
+%%% less margin at the top
+\makeatletter
+    \@setplength{firstheadvpos}{4mm}
+\makeatother
+
+%%%Remove Footer on first page:
+%\makeatletter
+%   \@setplength{firstfootvpos}{310mm}
+%\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom Header on first page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newkomavar{letterheadsubtitle}
+\setkomavar{firsthead}{%
+  \parbox{\linewidth}{\flushright
+    {\huge\sffamily\textbf{\usekomavar{fromname}}}\\
+    \vspace*{-2mm}\noindent\rule{\textwidth}{0.4pt}\\
+    {\large\usekomavar{letterheadsubtitle}}
+  }%
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Edit only the following!                                                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
